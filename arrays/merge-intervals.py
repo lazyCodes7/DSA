@@ -16,3 +16,10 @@ class Solution:
         return ans
                 
         
+cap.set(3,1280)
+
+cap.set(4,1024)
+
+time.sleep(2)
+
+cap.set(15, -8.0)
