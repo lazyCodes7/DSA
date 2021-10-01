@@ -5,8 +5,6 @@ def detectCycle(graph):
 	queue = Queue()
 	for edge in graph.edges:
 		visited[edge] = [False,-1]
-
-
 	for edge in graph.edges:
 		if(visited[edge][0] == False):
 			queue.put(edge)
@@ -18,23 +16,14 @@ def detectCycle(graph):
 						if(visited[neighbor][0] == False):
 							queue.put(neighbor)
 							visited[neighbor] = [True, node]
-
-						
 						elif(visited[neighbor][0] == True and visited[node][1]!=neighbor and visited[node][1]!=-1):
 							print(visited)
 							return True
-
 					except:
 						## we reached a node that was not connected to anything
 
 						visited[neighbor] = [True, node]
-
 	return False
-
-
-
-
-
 graph = Graph(undirected = True)
 graph.addEdge(1,2)
 graph.addEdge(2,3)

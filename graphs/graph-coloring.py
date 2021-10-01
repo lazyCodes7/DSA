@@ -6,7 +6,6 @@ def coloring(graph):
 	flag = 0
 	for edge in graph.edges:
 		visited[edge] = [False, "Not colored"]
-
 	for edge in graph.edges:
 		if(visited[edge][0] == False):
 			queue.put(edge)
@@ -18,19 +17,15 @@ def coloring(graph):
 					if(visited[neighbor][0] == False):
 						if(visited[node][1] == "Blue"):
 							visited[neighbor] = [True, "Green"]
-
 						else:
 							visited[neighbor] = [True, "Blue"]
-
 						queue.put(neighbor)
-
 					else:
 						if(visited[neighbor][1] == visited[node][1]):
 							print("Graph is not bipartite")
 							print("Stopping traversal")
 							return False
 	return visited
-
 graph = Graph()
 graph.addEdge(1,2)
 graph.addEdge(2,3)

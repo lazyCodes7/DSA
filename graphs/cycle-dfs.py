@@ -10,11 +10,7 @@ def detectCycle(graph):
 			if(value):
 				print(visited)
 				return True
-
-
 	return False
-
-
 def dfs(node, edges, visited):
 	for neighbor in edges[node]:
 		try:
@@ -24,20 +20,15 @@ def dfs(node, edges, visited):
 				#print(visited)
 				if(dfs(neighbor, edges, visited)):
 					return True
-				
-
 			else:
 				if(visited[neighbor][0] == True and visited[node][1]!=neighbor and visited[node][1]!=-1):
 					#print(visited)
 					return True
-
 		except Exception as e:
 			#print(e)
 			visited[neighbor] = [True,node]
 			#print(neighbor)
-
 	return False
-
 graph = Graph(undirected = False)
 graph.addEdge(1,2)
 graph.addEdge(2,3)
