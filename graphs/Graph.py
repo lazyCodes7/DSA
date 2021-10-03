@@ -3,6 +3,7 @@ class Graph:
 	def __init__(self, undirected = True):
 		self.edges = {}
 		self.undirected = undirected
+		self.values = []
 
 	def addEdge(self, u, v = None):
 		try:
@@ -17,6 +18,9 @@ class Graph:
 				if(u not in self.edges.keys()):
 					self.edges[u] = []
 				self.edges[u].append(v)
+
+			self.values.append(u)
+			self.values.append(v)
 			return 1
 		except Exception as e:
 			print(repr(e))
