@@ -1,4 +1,32 @@
 from queue import Queue
+from pair import Pair
+class WeightedGraph:
+	def __init__(self, undirected = True):
+		self.edges = {}
+		self.undirected = undirected
+		self.values = []
+
+	def addEdge(self, u, v = None):
+		try:
+			if(self.undirected):
+				if u not in self.edges.keys():
+					self.edges[u] = []
+				if v.pair['edge'] not in self.edges.keys():
+					self.edges[v.pair['edge']] = []
+				self.edges[u].append(v.pair)
+				self.edges[v.pair['edge']].append(Pair(u,v.pair['weight']).pair)
+			else:
+				if(u not in self.edges.keys()):
+					self.edges[u] = []
+				self.edges[u].append(v.pair)
+
+			self.values.append(u)
+			self.values.append(v.pair['edge'])
+			return 1
+		except Exception as e:
+			print(repr(e))
+			return 0 
+
 class Graph:
 	def __init__(self, undirected = True):
 		self.edges = {}
@@ -68,10 +96,6 @@ class Graph:
 			except:
 				visited[neighbor] = True
 				print(neighbor)
-
-
-
-
 
 
 
