@@ -28,10 +28,13 @@ class WeightedGraph:
 			return 0 
 
 class Graph:
-	def __init__(self, undirected = True):
+	def __init__(self, undirected = True, transpose = False):
 		self.edges = {}
 		self.undirected = undirected
 		self.values = []
+		self.transpose = transpose
+		if(transpose):
+			self.transpose_edges = {}
 
 	def addEdge(self, u, v = None):
 		try:
@@ -43,9 +46,18 @@ class Graph:
 				self.edges[u].append(v)
 				self.edges[v].append(u)
 			else:
-				if(u not in self.edges.keys()):
-					self.edges[u] = []
-				self.edges[u].append(v)
+				if(self.transpose):
+					if(v not in self.transpose_edges.keys()):
+						self.transpose_edges[v] = []
+					self.transpose_edges[v].append(u)
+
+					if(u not in self.edges.keys()):
+						self.edges[u] = []
+					self.edges[u].append(v)
+				else:
+					if(u not in self.edges.keys()):
+						self.edges[u] = []
+					self.edges[u].append(v)
 
 			self.values.append(u)
 			self.values.append(v)
