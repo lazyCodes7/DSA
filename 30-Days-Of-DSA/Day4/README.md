@@ -1,3 +1,5 @@
+# Day4
+
 ## 2 sum Problem
 
 Simple frequency array approach where you can store the values in a dict. 
