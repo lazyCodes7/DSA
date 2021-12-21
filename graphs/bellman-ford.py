@@ -9,7 +9,7 @@ def shortestpath(graph):
 	for val in list(set(graph.values)):
 		dp[val] = float('inf')
 
-	key1 = dp.keys()[0]
+	key1 = list(dp.keys())[0]
 	dp[key1] = 0
 
 
@@ -52,15 +52,14 @@ def dfs(graph, visited, dp, node):
 	except:
 		pass
 
-graph = WeightedGraph(undirected = False)
-graph.addEdge(1,Pair(2,6))
-graph.addEdge(1, Pair(3,5))
-graph.addEdge(1, Pair(4,5))
-graph.addEdge(2, Pair(5,-1))
-graph.addEdge(5, Pair(7,3))
-graph.addEdge(3, Pair(5,1))
-graph.addEdge(3, Pair(2,-2))
-graph.addEdge(4, Pair(3,-2))
-graph.addEdge(4, Pair(6,-1))
-graph.addEdge(6, Pair(7,3))
+graph = WeightedGraph()
+graph.addEdge("r",Pair("s",-3))
+graph.addEdge("s", Pair("t",3))
+graph.addEdge("v", Pair("t",1))
+graph.addEdge("t", Pair("s",-1))
+graph.addEdge("v", Pair("r",5))
+graph.addEdge("s", Pair("v",-2))
+graph.addEdge("u", Pair("s",1))
+graph.addEdge("u", Pair("v",1))
+graph.addEdge("w", Pair("u",1))
 print(shortestpath(graph))
