@@ -12,7 +12,7 @@ So what does it mean?
 
 Let’s take an example.
 
-```python
+```python3
 # A function to print numbers
 def printNums(n):
 '''
@@ -23,7 +23,7 @@ we have we expect to print those numbers
 
 ### B stands for base-case
 
-```python
+```python3
 def printNUms(n):
 	if(n == 1):
 		return
@@ -38,7 +38,7 @@ recursion finally stops
 
 This is the meaty part and using this we can do a lot of stuff. It is of course related to mathematical induction.
 
-```python
+```python3
 def printNums(n):
 	if(n == 1):
 		return
@@ -51,7 +51,7 @@ For example in the first case the induction is as follows.
 
 We already know and have printed numbers till 1...n-1 and so for printing the next number we just have to print(n)!
 
-```python
+```python3
 def printNums(n):
 	if(n == 1):
 		return
